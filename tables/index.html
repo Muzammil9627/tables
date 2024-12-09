@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Table</title>
+</head>
+<style>
+    html, body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    th,td{
+        border: 1px solid black;
+        padding: 10px;
+    }
+    body{
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .container{
+        background-color: rgb(149, 157, 192);
+        border: 1px solid green;
+        border-radius: 15px;
+        padding: 20px;
+        width: 300px;
+    }
+    input[type="number"],
+    select{
+        width: 100%;
+        border: 1px solid rgb(14, 14, 13);
+        border-radius: 15px;
+    }
+    button{
+        padding: 5px 20px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: relative;
+        z-index: inherit;
+        letter-spacing: 3px;
+    }
+    
+    button:hover{
+        background-color: lightskyblue;
+        border: 1px solid black;
+        border-radius: 15px;
+        transform: scale(1.0);
+        display: block;
+        filter: drop-shadow(0 0 10px black);
+        transition-duration: 2s;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Table Generate</h1>
+        <label>
+            Enter Your Table:
+            <input type="number" id="tableenter">
+        </label>
+        <br>
+        <br>
+        <label>
+            Enter Your Limit:
+            <input type="number" id="tablelimit">
+        </label>
+        <br>
+        <br>
+        <button onclick=" checktable()">Check</button>
+        <br>
+        <br>
+        <table id="math">
+
+        </table>
+    </div>
+    <script>
+        function checktable()
+        {
+            let tablename =Number(document.getElementById("tableenter").value)
+            let tablelimit =Number(document.getElementById("tablelimit").value)
+            let tr=""
+            for(let i=1; i<=tablelimit; i++){
+                tr += `<tr><td>${tablename}</td><td>x</td><td>${i}</td><td>=</td><td>${tablename * i}</td></tr>`
+            }
+            document.getElementById("math").innerHTML=tr
+        }
+    </script>
+</body>
+</html>
